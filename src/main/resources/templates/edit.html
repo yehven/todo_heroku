@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <title>Edit Todo</title>
+</head>
+<body>
+<div align="center">
+<h1 th:text="'Edit Todo with following id: ' + ${todo.id}"></h1>
+<form action="#" th:object="${todo}" th:action="@{/todo/edit/} + ${todo.id}" method="post" >
+    <div>
+        <label for="todo_name">Title:</label>
+        <input id="todo_name" type="text" th:field="*{title}"/>
+    </div>
+    <div>
+        <label for="urgent">Is urgent?</label>
+        <input id="urgent" type="checkbox" th:field="*{urgent}"/>
+    </div>
+    <div>
+        <label for="done">Is done?</label>
+        <input id="done" type="checkbox" th:field="*{done}"/>
+    </div>
+    <div>
+        <input class="btn btn-success" type="submit" value="Edit"/>
+    </div>
+</form>
+</div>
+</body>
+</html>
